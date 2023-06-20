@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<div class="container mt-2">
+    <h2>Register a new account</h2>
+
+    <p>
+        This site and sections allow customers to withdraw, deposit or continue their transactions any time that is 24/7 and at their homes. This reduces the need to stand in long lines especially in the summers, which can be detrimental to the health of lots of people. The net banking facility also makes it easier for diabled and senior citizens to still be connected to the banks and still continue their transactions without having to face any discomfort.   </p>
+</div>
+
+<div class="row mt-3 mb-3">
+
+    <div class="col-4 mt-2 text-center"> 
+        <img class="mt-5" width="250px" src="https://www.pngmart.com/files/10/User-Account-Person-PNG-Transparent-Image.png" alt="">
+    <br>
+    <button routerLink="/login" class="btn btn-warning mt-3">Back</button>
+
+    </div>
+
+
+    <div class="col-8">
+        <form  (ngSubmit)="register()" [formGroup]="registerForm"  class="border p-5 mt-5 me-5" action="">
+            <div class="form-floating mb-3">
+                <input name="uname" formControlName="uname" type="text" class="form-control" id="floatingInput" placeholder="username">
+                <label for="floatingInput">Username</label>
+              </div>
+              <div *ngIf="registerForm.get('uname')?.errors && registerForm.get('uname')?.touched" class="mb-3 text-danger">invalid username</div>
+
+
+              
+              <div class="form-floating mb-2">
+                <input name="acno" formControlName="acno" type="text" class="form-control" id="floatingPassword" placeholder="account number">
+                <label for="floatingPassword">Account number</label>
+              </div>
+              <div *ngIf="registerForm.get('acno')?.errors && registerForm.get('acno')?.touched" class="mb-3 text-danger">invalid account number</div>
+
+
+
+
+              <div class="form-floating mb-2">
+                <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div *ngIf="registerForm.get('pswd')?.errors && registerForm.get('pswd')?.touched" class="mb-3 text-danger">invalid password</div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Register</button>
+                <!-- even clicking enter will work if type is submit -->
+                <span>
+                    already a user? click <a style="text-decoration: none;" routerLink="/login">here</a> to login
+                </span>
+            </div>
+           
+          
+        </form>  </div>
+
+</div>

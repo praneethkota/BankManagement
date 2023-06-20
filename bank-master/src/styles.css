@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+
+body{
+    font-family: 'Kalam', cursive;
+    overflow-x: hidden;   /* disable scrollbar in x direction */
+   
+}

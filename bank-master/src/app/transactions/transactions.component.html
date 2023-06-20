@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+       <a routerLink="/dashboard" style="text-decoration: none;"><img src="https://img.icons8.com/stickers/512/merchant-account.png" alt="Logo" width="60" height="54" class="d-inline-block align-text-top">
+        This Bank &nbsp; &nbsp; &nbsp;</a>
+    </div>
+  </nav>
+
+  <!-- transactions body -->
+
+  <div class="container-fluid-mt-2">
+    <h1 class="text-primary mt-2">Transactions </h1>
+    <p style="text-align: justify;"> This Bank is one of India's largest banks with a strong domestic presence spanning 9,449 branches, and 13,153 ATMs and Cash Recyclers supported by self-service channels as of Sep'19. The Bank has a significant international presence with a network of 100 branches/ offices subsidiaries, spanning 21 countries </p>
+    <div class="container border p-3 m-5">
+        <div class="row">
+            
+            <div class="col-lg-4">
+                <h3 class="text-success">Transaction history</h3>
+            </div>
+            <div class="col-lg-4">
+                <label for="search">search by:</label>&nbsp;
+                <input (keyup)="search($event)" id="search" type="text" placeholder="transaction type">
+            </div>
+            <div class="col-lg-4">
+                <input (click)="generatePdf()" value="export" class="btn btn-success" type="button">
+            </div>
+        </div>
+        <!-- creating a table below row -->
+        <table class="table border mt-3 text-center">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Transaction Type</th>
+                <th>From Account</th>
+                <th>To Account</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+
+            <tbody>
+                <tr *ngFor="let t of allTransactions | filter : searchKey: 'type'; let i = index">
+                <th>{{i+1}}</th>
+                <th>{{t.type}}</th>
+                <th>{{t.fromAcno}}</th>
+                <th>{{t.toAcno}}</th>
+                <th>{{t.amount}}</th>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+  </div>

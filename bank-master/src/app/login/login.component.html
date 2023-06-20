@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="row">
+
+    <div class="col-7 mt-3"> <img height="450px;" width="830px" src="https://opengeekslab.com/wp-content/uploads/2021/06/Mobile-Banking-Trends-2021-Top-Insights-and-Features-to-Keep-in-Mind.png" alt=""></div>
+    <div class="col-5 mt-5">
+        <form  (ngSubmit)="login()" [formGroup]="loginForm"  class="border p-5 mt-5 me-5" action="">
+            <div class="form-floating mb-3">
+                <input name="acno" formControlName="acno" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">account number</label>
+              </div>
+              <div *ngIf="loginForm.get('acno')?.errors && loginForm.get('acno')?.touched" class="mb-3 text-danger">invalid account number</div>
+
+              <div class="form-floating mb-2">
+                <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div *ngIf="loginForm.get('pswd')?.errors && loginForm.get('pswd')?.touched" class="mb-3 text-danger">invalid password</div>
+                <!-- error msg from db -->
+                <div class="text-danger">{{errorMsg}}</div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Login
+                    <span *ngIf="successMsg" class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </span>
+                </button>
+                <!-- even clicking enter will work if type is submit -->
+                <span>
+                    new user? click <a style="text-decoration: none;" routerLink="/register">here</a> to register
+                </span>
+            </div>
+           
+          
+        </form>
+    </div>
+
+
+</div>
